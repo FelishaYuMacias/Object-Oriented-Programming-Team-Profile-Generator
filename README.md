@@ -66,7 +66,8 @@ Once everything is installed run the following command and answer prompts to cre
 node index.js
 ``` 
 
-See video below for walkthrough.
+See video below for walkthrough demonstrating the functionality of the application and passing tests.
+https://drive.google.com/file/d/1X7i3UA5jEa32u8KjEv7DQ-rSiiFHzHYW/view
 
 
 ### Screenshot
@@ -91,7 +92,7 @@ Github Repository Link
 https://github.com/FelishaYuMacias/Object-Oriented-Programming-Team-Profile-Generator
 
 Link to Walkthrough Recording
-
+https://drive.google.com/file/d/1X7i3UA5jEa32u8KjEv7DQ-rSiiFHzHYW/view
 
 
 ## License

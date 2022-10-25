@@ -157,8 +157,7 @@ const addIntern = () =>{
         }
     ])
     .then ((internInfo) =>{
-    console.log (internInfo)
-
+   
    const intern= new Intern (internInfo.name,internInfo.id,internInfo.email,internInfo.school) 
 
    employees.push(intern)
