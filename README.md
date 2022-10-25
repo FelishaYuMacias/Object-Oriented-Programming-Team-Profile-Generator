@@ -1,9 +1,11 @@
 # Object-Oriented-Programming-Team-Profile-Generator
 Module 10 Challenge
 
+
 ## Description
 
 A Node.js command-line application that takes in information about employees on a software engineering team, then generates an HTML webpage that displays summaries for each person.
+
 
 ### User Story
 
@@ -12,6 +14,7 @@ AS A manager
 I WANT to generate a webpage that displays my team's basic info
 SO THAT I have quick access to their emails and GitHub profiles
 ```
+
 
 ### Acceptance Criteria
 
@@ -35,6 +38,7 @@ WHEN I decide to finish building my team
 THEN I exit the application, and the HTML is generated
 ```
 
+
 ## Table of Contents (Optional)
 
 If your README is long, add a table of contents to make it easy for users to find what they need.
@@ -44,6 +48,8 @@ If your README is long, add a table of contents to make it easy for users to fin
 - [Testing](#testing)
 - [Credits](#credits)
 - [License](#license)
+
+
 
 ## Installation
 
@@ -59,6 +65,7 @@ If your README is long, add a table of contents to make it easy for users to fin
  npm i 
  ``` 
 
+
 ## Usage
 
 Once everything is installed run the following command and answer prompts to create your README file.
@@ -70,9 +77,17 @@ See video below for walkthrough demonstrating the functionality of the applicati
 https://drive.google.com/file/d/1X7i3UA5jEa32u8KjEv7DQ-rSiiFHzHYW/view
 
 
-### Screenshot
+### Screenshots
 
-![Screenshot of terminal after prompts are answered](./Screenshot.png)
+![Screenshot of passed tests](./media/tests.png)
+
+![Screenshot of terminal after prompts are answered](./media/prompts.png)
+
+![Screenshot of console log after application is ended](./media/console.png)
+
+![Screenshot of sample profile generated](./media/samplehtml.png)
+
+
 
 ## Testing
 
@@ -83,16 +98,23 @@ npm test
 
 You will receive a printout of whether tests passed or failed and why.
 
+
+
 ## Credits
 
 Inquirer NPM
 https://www.npmjs.com/package/inquirer
+
+Jest NPM
+https://www.npmjs.com/package/jest
 
 Github Repository Link
 https://github.com/FelishaYuMacias/Object-Oriented-Programming-Team-Profile-Generator
 
 Link to Walkthrough Recording
 https://drive.google.com/file/d/1X7i3UA5jEa32u8KjEv7DQ-rSiiFHzHYW/view
+
+
 
 
 ## License
