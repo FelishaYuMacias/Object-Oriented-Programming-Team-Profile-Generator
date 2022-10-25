@@ -17,7 +17,7 @@ const employees = []
 
 // GIVEN a command-line application that accepts user input
 
-// TODO: WHEN I start the application
+// WHEN I start the application
 // THEN I am prompted to enter the team manager’s name, employee ID, email address, and office number
 const managerPrompt = () => {
     return inquirer.prompt([
@@ -77,7 +77,9 @@ function addNewEmployee () {
                 console.log("add Intern!")
                 addIntern();
                 break;
-
+                
+                // WHEN I decide to finish building my team
+                // THEN I exit the application, and the HTML is generated
             default:
                 console.log("Team generated!")
                 writeHTML()
@@ -169,10 +171,8 @@ const addIntern = () =>{
 }
 }
 
-// TODO: WHEN I decide to finish building my team
-// THEN I exit the application, and the HTML is generated
 
-// TODO: WHEN I am prompted for my team members and their information
+// WHEN I am prompted for my team members and their information
 managerPrompt ()
 // THEN an HTML file is generated that displays a nicely formatted team roster based on user input
 function writeHTML () {
@@ -188,8 +188,4 @@ function writeHTML () {
         }
     })
 }; 
-// TODO: WHEN I click on an email address in the HTML
-// THEN my default email program opens and populates the TO field of the email with the address
 
-// TODO: WHEN I click on the GitHub username
-// THEN that GitHub profile opens in a new tab
