@@ -12,7 +12,7 @@ const Engineer = require("./lib/Engineer")
 const Intern = require("./lib/Intern")
 
 // empty array for employee list
-const employees = []
+const team = []
 
 // GIVEN a command-line application that accepts user input
 
@@ -46,10 +46,10 @@ const managerPrompt = () => {
         }
     ])
     .then ((managerInfo) =>{
-        console.log (managerInfo)
-        const managerInfo = {name, id, email,officeNumber}
-   const manager= new Manager(name,id,email,officeNumber) 
-   empoylees.push(manager)
+    console.log (managerInfo)
+   const manager= new Manager(managerInfo.name,managerInfo.id,managerInfo.email,managerInfo.officeNumber) 
+   team.push(manager)
+   console.log(team)
    addNewEmployee ()
     })
 };
@@ -62,7 +62,7 @@ function addNewEmployee () {
         {
             name: "question",
             type: "list",
-            messag: "Finish building your team.Do you want to:"
+            message: "Finish building your team.Do you want to:",
             choices: ["Add an Engineer", "Add an Intern", "My team is complete!"]
         }
     ]).then(answers => {
@@ -78,15 +78,24 @@ function addNewEmployee () {
                 break;
 
             default:
-                console.log("Your team page is being built")
+                console.log("Your team page is built!")
+                generateTeam (team)
                 break;
         }
     })
-}
 
 // TODO: WHEN I select the engineer option
 // THEN I am prompted to enter the engineer’s name, ID, email, and GitHub username, and I am taken back to the menu
+const addEngineer = () =>{
+    console.log("Add Engineer")
+    addNewEmployee()
+}
 
+const addIntern = () =>{
+    console.log("Add Intern")
+    addNewEmployee()
+    }
+}
 // TODO: WHEN I select the intern option
 // THEN I am prompted to enter the intern’s name, ID, email, and school, and I am taken back to the menu
 
