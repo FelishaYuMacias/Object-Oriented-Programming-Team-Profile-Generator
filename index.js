@@ -47,10 +47,10 @@ const managerPrompt = () => {
         }
     ])
     .then ((managerInfo) =>{
-    console.log (managerInfo)
    const manager= new Manager(managerInfo.name,managerInfo.id,managerInfo.email,managerInfo.officeNumber) 
+
    employees.push(manager)
-   console.log(employees)
+
    addNewEmployee ()
     })
 };
@@ -82,6 +82,7 @@ function addNewEmployee () {
                 // THEN I exit the application, and the HTML is generated
             default:
                 console.log("Team generated!")
+                console.log(employees)
                 writeHTML()
                 break;
         }
@@ -117,12 +118,9 @@ const addEngineer = () =>{
         }
     ])
     .then ((engineerInfo) =>{
-    console.log (engineerInfo)
-
    const engineer= new Engineer(engineerInfo.name,engineerInfo.id,engineerInfo.email,engineerInfo.github) 
 
    employees.push(engineer)
-   console.log(employees)
 
    addNewEmployee()
    })
@@ -164,7 +162,6 @@ const addIntern = () =>{
    const intern= new Intern (internInfo.name,internInfo.id,internInfo.email,internInfo.school) 
 
    employees.push(intern)
-   console.log(employees)
 
    addNewEmployee()
    })
@@ -176,16 +173,6 @@ const addIntern = () =>{
 managerPrompt ()
 // THEN an HTML file is generated that displays a nicely formatted team roster based on user input
 function writeHTML () {
-    fs.writeFile('index.html', generateHtml(employees), err => {
-        // if there is an error 
-        if (err) {
-            console.log(err);
-            return;
-        // when the profile has been created 
-        } else {
-            
-            console.log("Your team page is built check out index.html!")
+    fs.writeFile('index.html', generateHtml(employees), (err) => err ? console.log(err) : console.log("Your team page is built check out index.html!"))
         }
-    })
-}; 
 
