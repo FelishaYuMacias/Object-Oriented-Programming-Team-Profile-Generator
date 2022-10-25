@@ -173,6 +173,6 @@ const addIntern = () =>{
 managerPrompt ()
 // THEN an HTML file is generated that displays a nicely formatted team roster based on user input
 function writeHTML () {
-    fs.writeFile('index.html', generateHtml(employees), (err) => err ? console.log(err) : console.log("Your team page is built check out index.html!"))
+    fs.writeFile('./dist/index.html', generateHtml(employees), (err) => err ? console.log(err) : console.log("Your team page is built check out index.html!"))
         }
 
