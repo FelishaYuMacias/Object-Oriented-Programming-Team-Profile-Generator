@@ -12,7 +12,7 @@ const Engineer = require("./lib/Engineer")
 const Intern = require("./lib/Intern")
 
 // empty array for employee list
-const team = []
+const employees = []
 
 // GIVEN a command-line application that accepts user input
 
@@ -48,8 +48,8 @@ const managerPrompt = () => {
     .then ((managerInfo) =>{
     console.log (managerInfo)
    const manager= new Manager(managerInfo.name,managerInfo.id,managerInfo.email,managerInfo.officeNumber) 
-   team.push(manager)
-   console.log(team)
+   employees.push(manager)
+   console.log(employees)
    addNewEmployee ()
     })
 };
@@ -78,8 +78,8 @@ function addNewEmployee () {
                 break;
 
             default:
-                console.log("Your team page is built!")
-                generateTeam (team)
+                console.log("Team generated!")
+                writeHTML(employees)
                 break;
         }
     })
@@ -87,17 +87,86 @@ function addNewEmployee () {
 // TODO: WHEN I select the engineer option
 // THEN I am prompted to enter the engineer’s name, ID, email, and GitHub username, and I am taken back to the menu
 const addEngineer = () =>{
-    console.log("Add Engineer")
-    addNewEmployee()
+    return inquirer.prompt([
+        {
+            //Engineer's Name
+            type: 'input',
+            message: "What is the Engineer's name?",
+            name: 'name',
+        },
+        {
+            //Engineer's ID
+            type: 'input',
+            message: 'What is their employee id?',
+            name: 'id'
+        },
+        {
+            //Engineer's email
+            type: 'input',
+            message: 'What is their email address?',
+            name: 'email'
+        },
+        {
+            //Engineer's GitHub username
+            type: 'input',
+            message: 'What is their Github username?',
+            name: 'github'
+        }
+    ])
+    .then ((engineerInfo) =>{
+    console.log (engineerInfo)
+
+   const engineer= new Engineer(engineerInfo.name,engineerInfo.id,engineerInfo.email,engineerInfo.github) 
+
+   employees.push(engineer)
+   console.log(employees)
+
+   addNewEmployee()
+   })
 }
 
-const addIntern = () =>{
-    console.log("Add Intern")
-    addNewEmployee()
-    }
-}
+
 // TODO: WHEN I select the intern option
 // THEN I am prompted to enter the intern’s name, ID, email, and school, and I am taken back to the menu
+const addIntern = () =>{
+    return inquirer.prompt([
+        {
+            //Intern's Name
+            type: 'input',
+            message: "What is the Intern's name?",
+            name: 'name',
+        },
+        {
+            //Intern's ID
+            type: 'input',
+            message: 'What is their employee id?',
+            name: 'id'
+        },
+        {
+            //Intern's email
+            type: 'input',
+            message: 'What is their email address?',
+            name: 'email'
+        },
+        {
+            //Intern's GitHub username
+            type: 'input',
+            message: 'What school to they attend?',
+            name: 'school'
+        }
+    ])
+    .then ((internInfo) =>{
+    console.log (internInfo)
+
+   const intern= new Intern (internInfo.name,internInfo.id,internInfo.email,internInfo.school) 
+
+   employees.push(intern)
+   console.log(employees)
+
+   addNewEmployee()
+   })
+}
+}
 
 // TODO: WHEN I decide to finish building my team
 // THEN I exit the application, and the HTML is generated
@@ -105,7 +174,10 @@ const addIntern = () =>{
 // TODO: WHEN I am prompted for my team members and their information
 managerPrompt ()
 // THEN an HTML file is generated that displays a nicely formatted team roster based on user input
-
+const writeHTML= generateTeam= team => {
+    // fs.writeFile('index.html',team)
+    console.log("Your team page is built")
+}
 // TODO: WHEN I click on an email address in the HTML
 // THEN my default email program opens and populates the TO field of the email with the address
 
