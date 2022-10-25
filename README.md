@@ -68,7 +68,7 @@ If your README is long, add a table of contents to make it easy for users to fin
 
 ## Usage
 
-Once everything is installed run the following command and answer prompts to create your README file.
+Once everything is installed run the following command and answer prompts to create your profile html.
 ```md
 node index.js
 ``` 
