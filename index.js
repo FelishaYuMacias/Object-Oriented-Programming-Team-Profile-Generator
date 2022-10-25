@@ -3,13 +3,14 @@ const fs = require("fs")
 const inquirer = require("inquirer")
 
 //link to generate HTML
-const generateHTML = require("./util/generateHtml")
+const generateHtml = require("./util/generateHtml")
 
 //links to Employees -don't need Employee because is linked inside these
 
-const Manager = require("./lib/Manager")
-const Engineer = require("./lib/Engineer")
-const Intern = require("./lib/Intern")
+const Manager = require("./lib/Manager.js")
+const Engineer = require("./lib/Engineer.js")
+const Intern = require("./lib/Intern.js")
+
 
 // empty array for employee list
 const employees = []
@@ -55,7 +56,7 @@ const managerPrompt = () => {
 };
 
 
-// TODO: WHEN I enter the team manager’s name, employee ID, email address, and office number
+// WHEN I enter the team manager’s name, employee ID, email address, and office number
 // THEN I am presented with a menu with the option to add an engineer or an intern or to finish building my team
 function addNewEmployee () {
     inquirer.prompt([
@@ -79,12 +80,12 @@ function addNewEmployee () {
 
             default:
                 console.log("Team generated!")
-                writeHTML(employees)
+                writeHTML()
                 break;
         }
     })
 
-// TODO: WHEN I select the engineer option
+// WHEN I select the engineer option
 // THEN I am prompted to enter the engineer’s name, ID, email, and GitHub username, and I am taken back to the menu
 const addEngineer = () =>{
     return inquirer.prompt([
@@ -126,7 +127,7 @@ const addEngineer = () =>{
 }
 
 
-// TODO: WHEN I select the intern option
+// WHEN I select the intern option
 // THEN I am prompted to enter the intern’s name, ID, email, and school, and I am taken back to the menu
 const addIntern = () =>{
     return inquirer.prompt([
@@ -174,10 +175,19 @@ const addIntern = () =>{
 // TODO: WHEN I am prompted for my team members and their information
 managerPrompt ()
 // THEN an HTML file is generated that displays a nicely formatted team roster based on user input
-const writeHTML= generateTeam= team => {
-    // fs.writeFile('index.html',team)
-    console.log("Your team page is built")
-}
+function writeHTML () {
+    fs.writeFile('index.html', generateHtml(employees), err => {
+        // if there is an error 
+        if (err) {
+            console.log(err);
+            return;
+        // when the profile has been created 
+        } else {
+            
+            console.log("Your team page is built check out index.html!")
+        }
+    })
+}; 
 // TODO: WHEN I click on an email address in the HTML
 // THEN my default email program opens and populates the TO field of the email with the address
 
